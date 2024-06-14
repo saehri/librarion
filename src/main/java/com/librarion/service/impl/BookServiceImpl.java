@@ -1,7 +1,7 @@
 package com.librarion.service.impl;
 
 import com.librarion.dto.BookDto;
-import com.librarion.models.Book;
+import com.librarion.models.Books;
 import com.librarion.repository.BookRepository;
 import com.librarion.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +21,21 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<BookDto> findAllBooks() {
-        List<Book> books = bookRepository.findAll();
+        List<Books> books = bookRepository.findAll();
         return books.stream().map(this::mapToBookDto).collect(Collectors.toList());
     }
 
-    public BookDto mapToBookDto(Book book) {
+    public BookDto mapToBookDto(Books book) {
         return BookDto.builder()
                 .book_id(book.getBook_id())
                 .title(book.getTitle())
-                .description(book.getDescription())
-                .copies_available(book.getCopies_available())
-                .updated_on(book.getUpdated_on())
-                .created_on(book.getCreated_on())
                 .isbn(book.getIsbn())
                 .year_published(book.getYear_published())
                 .pages(book.getPages())
+                .copies_available(book.getCopies_available())
+                .updated_on(book.getUpdated_on())
+                .created_on(book.getCreated_on())
+                .description(book.getDescription())
                 .build();
     }
 }

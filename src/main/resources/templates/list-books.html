@@ -1,0 +1,17 @@
+<html lang="en" xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<main>
+    <section layout:fragment="main">
+        <div th:each="book: ${books}">
+            <article>
+                <h4 th:text="${book.title}"></h4>
+                <p th:text="${book.description}"></p>
+                <p th:text="${book.copies_available}"></p>
+            </article>
+        </div>
+    </section>
+</main>
+</body>
+</html>

@@ -18,10 +18,11 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @GetMapping("/")
+    @GetMapping("/app/books")
     public String listBooks(Model model) {
         List<BookDto> books = bookService.findAllBooks();
         model.addAttribute("books", books);
-        return "index";
+        return "list-books";
     }
+
 }

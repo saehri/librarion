@@ -4,18 +4,17 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.sql.Date;
-import java.time.LocalDateTime;
 
 @Data
 @Builder
 public class BookDto {
     private Long book_id;
     private String title;
-    private String description;
-    private Date year_published;
-    private int copies_available;
     private String isbn;
+    private String year_published;
     private int pages;
-    private LocalDateTime created_on;
-    private LocalDateTime updated_on;
+    private int copies_available;
+    private String description;
+    private Date created_on;
+    private Date updated_on;
 }
