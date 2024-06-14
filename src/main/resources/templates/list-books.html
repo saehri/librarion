@@ -3,14 +3,24 @@
       layout:decorate="~{layout}">
 <body>
 <main>
-    <section layout:fragment="main">
-        <div th:each="book: ${books}">
-            <article>
-                <h4 th:text="${book.title}"></h4>
-                <p th:text="${book.description}"></p>
-                <p th:text="${book.copies_available}"></p>
-            </article>
-        </div>
+    <section layout:fragment="main" class="max-w-screen-xl mx-auto flex flex-col gap-4">
+        <a href="/app/books/add">Add book</a>
+
+        <section>
+            <header class="grid grid-cols-3 font-semibold bg-white p-4 rounded-tl-md rounded-tr-md">
+                <p>Title</p>
+                <p>Description</p>
+                <p>Available Copies</p>
+            </header>
+
+            <div th:each="book: ${books}" class="bg-white p-4 rounded-bl-md rounded-br-md">
+                <article class="grid grid-cols-3">
+                    <h4 th:text="${book.title}"></h4>
+                    <p th:text="${book.description}"></p>
+                    <p th:text="${book.copies_available}"></p>
+                </article>
+            </div>
+        </section>
     </section>
 </main>
 </body>

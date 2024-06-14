@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<main>
+    <section layout:fragment="main" class="max-w-screen-xl mx-auto">
+        <a href="/app/books">Books shelf</a>
+
+        <form method="post" th:action="@{/app/books/new}" th:object="${books}" class="grid grid-cols-2 gap-4">
+            <div class="flex flex-col gap-1">
+                <label for="book_title">Book title</label>
+                <input id="book_title" type="text" name="title" maxlength="255" th:field="*{title}">
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <label for="isbn">ISBN</label>
+                <input id="isbn" type="text" name="isbn" maxlength="13" th:field="*{isbn}">
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <label for="year_published">Year published</label>
+                <input id="year_published" type="text" name="year_published" maxlength="4" th:field="*{year_published}">
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <label for="pages">Book pages</label>
+                <input id="pages" type="number" name="pages" min="1" th:field="*{pages}">
+            </div>
+
+            <div class="flex flex-col gap-1">
+                <label for="copies_available">Copies available</label>
+                <input id="copies_available" type="number" name="copies_available" min="1" th:field="*{copies_available}">
+            </div>
+
+            <button type="submit">Add book</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>

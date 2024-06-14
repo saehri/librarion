@@ -4,9 +4,9 @@
 <body>
 <main>
     <section layout:fragment="main">
-        <div th:each="author: ${authors}">
+        <div th:each="member: ${members}">
             <article>
-                <h4 th:text="${author.first_name} ${author.last_name}}"></h4>
+                <h4 th:text="${member.first_name}"></h4>
             </article>
         </div>
     </section>

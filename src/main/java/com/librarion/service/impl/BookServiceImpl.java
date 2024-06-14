@@ -25,6 +25,27 @@ public class BookServiceImpl implements BookService {
         return books.stream().map(this::mapToBookDto).collect(Collectors.toList());
     }
 
+    @Override
+    public Books saveNewBook(BookDto bookDto) {
+        Books books = mapToBooks(bookDto);
+        return bookRepository.save(books);
+    }
+
+    public static Books mapToBooks(BookDto books) {
+        Books bookDto = Books.builder()
+                .book_id(books.getBook_id())
+                .title(books.getTitle())
+                .copies_available(books.getCopies_available())
+                .created_on(books.getCreated_on())
+                .year_published(books.getYear_published())
+                .updated_on(books.getUpdated_on())
+                .description(books.getDescription())
+                .isbn(books.getIsbn())
+                .pages(books.getPages())
+                .build();
+        return  bookDto;
+    }
+
     public BookDto mapToBookDto(Books book) {
         return BookDto.builder()
                 .book_id(book.getBook_id())

@@ -14,6 +14,5 @@ public class LibrarioApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LibrarioApplication.class, args);
-
 	}
 }
